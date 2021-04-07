@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Account Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Account List</h1>
+    <a href="/new">Create New Account</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Account(Mail)</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${listAccounts}">
+            <td th:text="${account.id}">account ID</td>
+            <td th:text="${account.mail}">Name</td>
+            <td th:text="${account.name}">Brand</td>
+            <td th:text="${account.description}">Made in</td>
+            <td>
+                <a th:href="@{'/edit/' + ${account.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${account.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
